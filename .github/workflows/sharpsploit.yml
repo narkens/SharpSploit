@@ -26,7 +26,7 @@ jobs:
         echo "MSBUILD_PATH=$msbuildPath" | Out-File -Append $env:GITHUB_ENV
 
     - name: Install Unittest
-      run: nuget install Microsoft.VisualStudio.TestTools.UnitTesting -OutputDirectory packages
+      run: nuget install MSTest.TestFramework -OutputDirectory packages 
 
 
     - name: Restore nuget
