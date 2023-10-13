@@ -25,6 +25,10 @@ jobs:
         $msbuildPath = & vswhere -latest -products * -requires Microsoft.Component.MSBuild -find MSBuild\**\Bin\MSBuild.exe
         echo "MSBUILD_PATH=$msbuildPath" | Out-File -Append $env:GITHUB_ENV
 
+    - name: Install Unittest
+      run: nuget install Microsoft.VisualStudio.TestTools.UnitTesting -OutputDirectory packages
+
+
     - name: Restore nuget
       run: |
         powershell -Command "& '$env:MSBUILD_PATH' /t:Restore SharpSploit.sln"
